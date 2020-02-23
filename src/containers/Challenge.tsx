@@ -15,13 +15,15 @@ export function Challenge(props: Props) {
   return (
     <div className="challenge__wrapper">
       <Side
-        dataSources={state.campaigns}
-        campaigns={state.dataSources}
+        dataSources={state.allDataSources}
+        campaigns={state.allCampaigns}
+        selectedCampaigns={state.selectedCampaigns}
+        selectedDataSources={state.selectedDataSources}
         onToggleCampaign={state.toggleCampaign}
         onToggleDataSource={state.toggleDataSource}
       />
 
-      <Main />
+      <Main data={state.filteredData} />
     </div>
   );
 }

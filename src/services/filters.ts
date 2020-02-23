@@ -1,6 +1,6 @@
 import { concat, filter, includes, map, uniq } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
-import { ETLData, FilterOption } from '../types';
+import { ETLData } from '../types';
 
 export function toggleElement(arr: string[], element: string) {
   return includes(arr, element)
@@ -43,11 +43,6 @@ export function useFilters(data: ETLData[]) {
     [selectedCampaigns, setSelectedCampaigns]
   );
 
-  const campaigns: FilterOption[] = map(allCampaigns, campaign => ({
-    label: campaign,
-    checked: includes(selectedCampaigns, campaign)
-  }));
-
   // DataSources
   const allDataSources = useMemo(() => getAllDataSources(data), [data]);
   const [selectedDataSources, setSelectedDataSources] = useState<string[]>([]);
@@ -58,20 +53,17 @@ export function useFilters(data: ETLData[]) {
     [selectedDataSources, setSelectedDataSources]
   );
 
-  const dataSources: FilterOption[] = map(allDataSources, dataSource => ({
-    label: dataSource,
-    checked: includes(selectedDataSources, dataSource)
-  }));
-
   const filteredData = filterDataByCampaigns(
     filterDataByDataSource(data, selectedDataSources),
     selectedCampaigns
   );
 
   return {
-    campaigns,
+    allCampaigns,
+    selectedCampaigns,
     toggleCampaign,
-    dataSources,
+    allDataSources,
+    selectedDataSources,
     toggleDataSource,
     filteredData
   };

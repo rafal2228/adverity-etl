@@ -1,11 +1,11 @@
-import { Typography } from '@rmwc/typography';
+import { H4 } from '@blueprintjs/core';
 import React, { FC } from 'react';
 import './CenterMessage.css';
 
 export const CenterMessage: FC = props => {
   return (
     <div className="center-message__wrapper">
-      <Typography use="headline4">{props.children}</Typography>
+      <H4>{props.children}</H4>
     </div>
   );
 };

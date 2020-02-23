@@ -5,8 +5,3 @@ export interface ETLData {
   clicks: number;
   impressions: number;
 }
-
-export interface FilterOption {
-  label: string;
-  checked: boolean;
-}

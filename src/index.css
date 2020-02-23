@@ -1,4 +1,6 @@
 @import-normalize;
+@import '~@blueprintjs/core/lib/css/blueprint.css';
+@import '~@blueprintjs/select/lib/css/blueprint-select.css';
 
 body {
   margin: 0;
