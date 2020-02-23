@@ -23,7 +23,7 @@ export function Challenge(props: Props) {
         onToggleDataSource={state.toggleDataSource}
       />
 
-      <Main data={state.filteredData} />
+      <Main data={state.aggregatedData} />
     </div>
   );
 }

@@ -21,7 +21,7 @@ function prepareData() {
       const [date, dataSource, campaign, clicks, impressions] = line.split(',');
 
       data.push({
-        date: new Date(date),
+        date,
         dataSource,
         campaign,
         clicks: +clicks,
