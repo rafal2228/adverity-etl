@@ -1,0 +1,6 @@
+.challenge__wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  box-sizing: border-box;
+}
