@@ -2,17 +2,17 @@ import { concat, filter, includes, map, uniq, reduce } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 import { ETLData, AggregatedData } from '../types';
 
-export function toggleElement(arr: string[], element: string) {
+function toggleElement(arr: string[], element: string) {
   return includes(arr, element)
     ? filter(arr, e => e !== element)
     : concat(arr, element);
 }
 
-export function getAllCampaigns(data: ETLData[]) {
+function getAllCampaigns(data: ETLData[]) {
   return uniq(map(data, 'campaign'));
 }
 
-export function filterDataByCampaigns(data: ETLData[], campaigns: string[]) {
+function filterDataByCampaigns(data: ETLData[], campaigns: string[]) {
   if (campaigns.length < 1) {
     return data;
   }
@@ -20,11 +20,11 @@ export function filterDataByCampaigns(data: ETLData[], campaigns: string[]) {
   return filter(data, record => campaigns.includes(record.campaign));
 }
 
-export function getAllDataSources(data: ETLData[]) {
+function getAllDataSources(data: ETLData[]) {
   return uniq(map(data, 'dataSource'));
 }
 
-export function filterDataByDataSource(data: ETLData[], dataSources: string[]) {
+function filterDataByDataSource(data: ETLData[], dataSources: string[]) {
   if (dataSources.length < 1) {
     return data;
   }
@@ -32,7 +32,7 @@ export function filterDataByDataSource(data: ETLData[], dataSources: string[]) {
   return filter(data, record => dataSources.includes(record.dataSource));
 }
 
-export function aggregateByDate(data: ETLData[]): AggregatedData[] {
+function aggregateByDate(data: ETLData[]): AggregatedData[] {
   return Object.values(
     reduce(
       data,
