@@ -1,5 +1,11 @@
 .side__content {
   display: flex;
   flex-direction: column;
-  width: 300px;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .side__content {
+    width: 300px;
+  }
 }

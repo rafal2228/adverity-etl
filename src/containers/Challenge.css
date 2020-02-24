@@ -1,10 +1,20 @@
 .challenge__wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   box-sizing: border-box;
   padding: 1rem;
 }
 
 .challenge__wrapper > *:not(:first-child) {
-  margin-left: 1em;
+  margin: 1em 0 0 0;
+}
+
+@media (min-width: 960px) {
+  .challenge__wrapper {
+    flex-direction: row;
+  }
+
+  .challenge__wrapper > *:not(:first-child) {
+    margin: 0 0 0 1em;
+  }
 }

@@ -23,7 +23,7 @@ export function Main(props: Props) {
       <ResponsiveContainer aspect={16 / 9}>
         <LineChart
           data={props.data}
-          margin={{ top: 20, right: 40, bottom: 20, left: 20 }}
+          margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
@@ -37,12 +37,18 @@ export function Main(props: Props) {
             orientation="left"
             dataKey="impressions"
             yAxisId="impressions"
+            tickFormatter={(impressions: number) =>
+              impressions > 1000 ? `${impressions / 1000}k` : impressions
+            }
           />
           <YAxis
             type="number"
             orientation="right"
             dataKey="clicks"
             yAxisId="clicks"
+            tickFormatter={(clicks: number) =>
+              clicks > 1000 ? `${clicks / 1000}k` : clicks
+            }
           />
           <Tooltip />
           <Legend />

@@ -1,11 +1,15 @@
-import { H4 } from '@blueprintjs/core';
+import { Callout, Intent } from '@blueprintjs/core';
 import React, { FC } from 'react';
 import './CenterMessage.css';
 
-export const CenterMessage: FC = props => {
+interface Props {
+  intent: Intent;
+}
+
+export const CenterMessage: FC<Props> = props => {
   return (
     <div className="center-message__wrapper">
-      <H4>{props.children}</H4>
+      <Callout intent={props.intent}>{props.children}</Callout>
     </div>
   );
 };
