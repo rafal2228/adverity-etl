@@ -1,4 +1,4 @@
-import { Card } from '@blueprintjs/core';
+import { Card, Callout, Intent } from '@blueprintjs/core';
 import React from 'react';
 import {
   CartesianGrid,
@@ -18,6 +18,16 @@ interface Props {
 }
 
 export function Main(props: Props) {
+  if (props.data?.length < 1) {
+    return (
+      <Card className="main__card">
+        <Callout intent={Intent.PRIMARY}>
+          No data found, try changing your filters
+        </Callout>
+      </Card>
+    );
+  }
+
   return (
     <Card className="main__card">
       <ResponsiveContainer aspect={16 / 9}>
